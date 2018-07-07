@@ -14,13 +14,15 @@ source:
   md5: {{ md5 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
   build:
-    - toolchain
-    - bzip2 1.0.*
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - bzip2
 
 test:
   commands:

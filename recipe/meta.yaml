@@ -23,6 +23,8 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - bzip2
+  run:
+    - bzip2
 
 test:
   commands:

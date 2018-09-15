@@ -14,22 +14,25 @@ source:
   md5: {{ md5 }}
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
   build:
-    - toolchain
-    - bzip2 1.0.*
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
+    - bzip2
+  run:
+    - bzip2
 
 test:
   commands:
     - pbzip2 --version
-    - conda inspect linkages -n _test pbzip2
 
 about:
   home: http://compression.ca/pbzip2/
-  license: pbzip2 License
+  license: pbzip2
   license_file: COPYING
   summary: PBZIP2 is a parallel implementation of the bzip2 block-sorting file compressor
 
